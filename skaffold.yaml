@@ -1,0 +1,14 @@
+apiVersion: skaffold/v4beta1
+kind: Config
+metadata:
+  name: spring-test
+build:
+  artifacts:
+  - image: rutven/demo
+    buildpacks:
+      builder: gcr.io/buildpacks/builder:v1
+      env:
+        - "GOOGLE_RUNTIME_VERSION=17"
+manifests:
+  rawYaml:
+  - deployment.yaml
